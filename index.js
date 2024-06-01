@@ -21,7 +21,7 @@ const makeCommit = async n => {
     console.log(data);
 
     writeFile(FILE_PATH, data, async () => {
-        await git.add(FILE_PATH);
+        await git.add('.');
         await git.commit(DATE, { '--date': DATE });
         makeCommit(--n);
     });
@@ -44,4 +44,5 @@ const initializeAndRun = async () => {
 };
 
 initializeAndRun();
+
 
